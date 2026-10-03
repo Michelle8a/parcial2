@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('Id_Pedido');
+            $table->dateTime('FechaPedido');
+            $table->dateTime('FechaEntrega');
+            $table->string('Observaciones', 150);
+            $table->unsignedBigInteger('Id_Cliente');
+
+            $table->foreign('Id_Cliente', 'FK_Pedido_Cliente')->references('Id_Cliente')->on('clientes');
         });
     }
 
