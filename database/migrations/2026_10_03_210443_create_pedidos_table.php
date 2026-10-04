@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('Observaciones', 150);
             $table->unsignedBigInteger('Id_Cliente');
 
-            $table->foreign('Id_Cliente', 'FK_Pedido_Cliente')->references('Id_Cliente')->on('clientes');
+            $table->foreign('Id_Cliente')->references('Id_Cliente')->on('clientes')->cascadeOnDelete();
         });
     }
 

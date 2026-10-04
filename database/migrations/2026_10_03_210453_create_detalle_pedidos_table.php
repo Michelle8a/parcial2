@@ -20,8 +20,8 @@ return new class extends Migration
             $table->primary(['Id_Articulo', 'Id_Pedido']);
 
             //LLave foranea
-            $table->foreign('Id_Pedido', 'FK_Detalle_Pedido_Pedido')->references('Id_Pedido')->on('pedidos');
-            $table->foreign('Id_Articulo', 'FK_Detalle_Pedido_Articulo')->references('Id_Articulo')->on('articulos');
+            $table->foreign('Id_Pedido', 'FK_Detalle_Pedido_Pedido')->references('Id_Pedido')->on('pedidos')->cascadeOnDelete();
+            $table->foreign('Id_Articulo', 'FK_Detalle_Pedido_Articulo')->references('Id_Articulo')->on('articulos')->cascadeOnDelete();
         });
     }
 
