@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipo 5 Proyecto 1</title>
+    <title>GrupoNumero5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -69,7 +69,7 @@
                                     </tr>
                                     <tr>
                                         <th class="table-primary">Parcial 2</th>
-                                        <td class="fw-bold">Equipo 5 Proyecto 1</td>
+                                        <td class="fw-bold">Grupo Numero 5</td>
                                     </tr>
                                 </tbody>
                             </table>
