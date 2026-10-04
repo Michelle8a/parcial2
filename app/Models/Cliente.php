@@ -11,4 +11,13 @@ class Cliente extends Model
     public $timestamps = false;
 
     protected $fillable = ['Nombre', 'Apellido', 'Fecha_Nac'];
+
+    protected $casts = [
+        'Fecha_Nac' => 'datetime',
+    ];
+
+    // Un cliente tiene muchos pedidos
+    public function pedidos(){
+        return $this->hasMany(Pedido::class, 'Id_Cliente', 'Id_Cliente');
+    }
 }

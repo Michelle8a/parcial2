@@ -10,8 +10,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pedido.show') }}">PEDIDO</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">CLIENTE</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">ARTICULO</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cliente.show') }}">CLIENTE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('articulo.show') }}">ARTICULO</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar artículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    @include('navbar')
+
+    <div class="container my-4" style="max-width: 600px;">
+        <h2 class="mb-3">Actualizar artículo</h2>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $e) <li>{{ $e }}</li> @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('articulo.update', $articulo->Id_Articulo) }}" method="POST" class="card card-body shadow-sm">
+            @csrf
+            @method('PUT')
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" name="Nombre" maxlength="50" class="form-control"
+                    value="{{ old('Nombre', $articulo->Nombre) }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <input type="text" name="Descripcion" maxlength="150" class="form-control"
+                    value="{{ old('Descripcion', $articulo->Descripcion) }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cantidad en inventario</label>
+                <input type="number" name="CantInventario" min="0" class="form-control"
+                    value="{{ old('CantInventario', $articulo->CantInventario) }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Precio ($)</label>
+                <input type="number" name="Precio" min="0" step="0.01" class="form-control"
+                    value="{{ old('Precio', $articulo->Precio) }}" required>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-primary">Actualizar</button>
+                <a href="{{ route('articulo.show') }}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

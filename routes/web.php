@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\DetallePedidoController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ArticuloController;
 
 Route::get('/', function () {
     $integrantes = [
@@ -30,3 +32,19 @@ Route::post('/pedido/{pedido}/detalles', [DetallePedidoController::class, 'store
 Route::get('/pedido/{pedido}/detalles/{articulo}/editar', [DetallePedidoController::class, 'edit'])->name('detalle.edit');
 Route::put('/pedido/{pedido}/detalles/{articulo}', [DetallePedidoController::class, 'update'])->name('detalle.update');
 Route::delete('/pedido/{pedido}/detalles/{articulo}', [DetallePedidoController::class, 'destroy'])->name('detalle.destroy');
+
+// CRUD Cliente
+Route::get('/cliente', [ClienteController::class, 'show'])->name('cliente.show');
+Route::get('/cliente/crear', [ClienteController::class, 'create'])->name('cliente.create');
+Route::post('/cliente', [ClienteController::class, 'store'])->name('cliente.store');
+Route::get('/cliente/{cliente}/editar', [ClienteController::class, 'edit'])->name('cliente.edit');
+Route::put('/cliente/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
+Route::delete('/cliente/{cliente}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
+
+// CRUD Articulo
+Route::get('/articulo', [ArticuloController::class, 'show'])->name('articulo.show');
+Route::get('/articulo/crear', [ArticuloController::class, 'create'])->name('articulo.create');
+Route::post('/articulo', [ArticuloController::class, 'store'])->name('articulo.store');
+Route::get('/articulo/{articulo}/editar', [ArticuloController::class, 'edit'])->name('articulo.edit');
+Route::put('/articulo/{articulo}', [ArticuloController::class, 'update'])->name('articulo.update');
+Route::delete('/articulo/{articulo}', [ArticuloController::class, 'destroy'])->name('articulo.destroy');
